@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Послуги Електрика в Києві | Ваш Надійний Фахівець</title>
+    <meta name="description" content="Професійні послуги електрика в Києві. ✔️ Терміновий виклик ✔️ Монтаж проводки ✔️ Встановлення розеток, вимикачів, люстр ✔️ Гарантія на всі роботи. Дзвоніть!">
+    <meta name="keywords" content="послуги електрика, електрик київ, виклик електрика, електромонтажні роботи, заміна проводки">
+    <style>
+        :root {
+            --primary-color: #FFC107; /* Amber */
+            --dark-color: #212121;
+            --light-gray-color: #f5f5f5;
+            --text-color: #333;
+            --header-color: #ffffff;
+            --animation-speed: 0.5s;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-gray-color);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+        /* --- Preloader --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: opacity var(--animation-speed) ease, visibility var(--animation-speed) ease;
+        }
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: var(--primary-color);
+            margin-top: 20px;
+            animation: spin 1s ease infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* --- General Styles --- */
+        .container {
+            max-width: 960px;
+            margin: auto;
+            padding: 20px;
+            overflow: hidden;
+        }
+        header {
+            background-color: var(--header-color);
+            color: var(--text-color);
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color var(--animation-speed);
+        }
+        nav a:hover {
+            background-color: #fffde7;
+        }
+        section {
+            padding: 60px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        h1, h2, h3 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 { font-size: 2.5em; }
+        h2 { font-size: 2em; }
+        .hero {
+            background-color: var(--dark-color);
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero h1, .hero p {
+            color: #fff;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--dark-color);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color var(--animation-speed), transform 0.2s;
+            margin: 5px;
+            box-shadow: 0 4px 15px rgba(255,193,7,0.4);
+        }
+        .cta-button:hover {
+            background: #ffca28;
+            transform: translateY(-3px);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .service-item {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #eee;
+            transition: transform var(--animation-speed), box-shadow var(--animation-speed);
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .service-item .emoji {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .process-steps {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .step {
+            flex-basis: 200px;
+        }
+        .step .icon {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            background-color: var(--dark-color);
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            display: inline-block;
+            color: #fff;
+        }
+        .arrow {
+            font-size: 2em;
+            color: #ccc;
+            align-self: center;
+        }
+        @media(max-width: 768px) {
+            .arrow { display: none; }
+            .step { margin-bottom: 20px; }
+        }
+        .faq-item {
+            background: #fff;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .faq-question {
+            padding: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+        }
+        .faq-question::after {
+            content: '▼';
+            position: absolute;
+            right: 20px;
+            transition: transform 0.3s;
+        }
+        .faq-answer {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+        }
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Adjust as needed */
+            padding: 15px;
+        }
+        footer {
+            background: var(--dark-color);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader Screen -->
+    <div id="preloader">
+        <div class="loader-text">Завантаження сайту...</div>
+        <div class="spinner"></div>
+    </div>
+
+    <!-- The rest of the site content is readable by bots here -->
+    <header id="header">
+        <nav>
+            <a href="#services">Послуги</a>
+            <a href="#process">Як ми працюємо</a>
+            <a href="#pricing">Ціни</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Контакти</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>⚡ Професійні Послуги Електрика в Києві</h1>
+                <p>Немає світла? Іскрить розетка? Потрібен монтаж? Швидкий виїзд, якісна робота та гарантія безпеки вашого дому.</p>
+                <a href="tel:+380000000000" class="cta-button">📞 Терміновий виклик</a>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>Наші Послуги 🔧</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="emoji">💡</div>
+                        <h3>Заміна та монтаж освітлення</h3>
+                        <p>Встановлення люстр, світильників, бра, світлодіодних стрічок та трекових систем.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="emoji">🔌</div>
+                        <h3>Встановлення розеток та вимикачів</h3>
+                        <p>Монтаж, заміна та перенесення розеток і вимикачів будь-якого типу.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="emoji">⚡️</div>
+                        <h3>Повна або часткова заміна проводки</h3>
+                        <p>Заміна старої алюмінієвої проводки на нову мідну в квартирах, будинках та офісах.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="emoji">🛡️</div>
+                        <h3>Збірка та монтаж електрощитів</h3>
+                        <p>Професійна збірка щитів, встановлення автоматів, ПЗВ та диференційних автоматів.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="emoji">🔍</div>
+                        <h3>Пошук та усунення несправностей</h3>
+                        <p>Діагностика причин короткого замикання, відсутності світла, запаху горілої проводки.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="emoji">🍳</div>
+                        <h3>Підключення побутової техніки</h3>
+                        <p>Підключення електроплит, духових шаф, бойлерів, пральних та посудомийних машин.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" style="background-color: #fff;">
+            <div class="container">
+                <h2>Як ми працюємо ⚙️</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="icon">①</div>
+                        <h3>Ваш дзвінок</h3>
+                        <p>Ви телефонуєте нам, описуєте проблему, і ми надаємо первинну консультацію.</p>
+                    </div>
+                    <div class="arrow">➔</div>
+                    <div class="step">
+                        <div class="icon">②</div>
+                        <h3>Виїзд майстра</h3>
+                        <p>Електрик приїжджає у зручний для вас час для діагностики та розрахунку вартості.</p>
+                    </div>
+                    <div class="arrow">➔</div>
+                    <div class="step">
+                        <div class="icon">③</div>
+                        <h3>Виконання робіт</h3>
+                        <p>Після узгодження майстер якісно та безпечно виконує всі необхідні роботи.</p>
+                    </div>
+                    <div class="arrow">➔</div>
+                    <div class="step">
+                        <div class="icon">④</div>
+                        <h3>Гарантія якості</h3>
+                        <p>Ви отримуєте гарантію на всі виконані електромонтажні роботи.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing">
+            <div class="container">
+                <h2>Орієнтовні ціни на послуги 💰</h2>
+                <p style="text-align: center; max-width: 600px; margin: 0 auto 40px;">Точна вартість робіт залежить від об'єму та складності. Мінімальна вартість виклику - 400 грн.</p>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Виклик та діагностика</h3>
+                        <p style="font-size: 1.5em; font-weight: bold; color: var(--dark-color);">0 грн*</p>
+                        <p style="font-size: 0.9em;">*при виконанні робіт</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Встановлення розетки/вимикача</h3>
+                        <p style="font-size: 1.5em; font-weight: bold; color: var(--dark-color);">від 150 грн</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Монтаж люстри</h3>
+                        <p style="font-size: 1.5em; font-weight: bold; color: var(--dark-color);">від 350 грн</p>
+                    </div>
+                </div>
+                 <div style="text-align: center; margin-top: 30px;">
+                    <a href="tel:+380000000000" class="cta-button">📞 Отримати консультацію</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" style="background-color: #fff;">
+            <div class="container">
+                <h2>Часті запитання 🤔</h2>
+                <div class="faq-item">
+                    <div class="faq-question">Як швидко може приїхати електрик?</div>
+                    <div class="faq-answer">
+                        <p>При терміновому виклику майстер може бути у вас вже протягом однієї години (в межах Києва). Також можливий виїзд на точний час за попередньою домовленістю.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Чи є у вас всі необхідні інструменти?</div>
+                    <div class="faq-answer">
+                        <p>Так, наші майстри мають повний набір професійних інструментів для виконання будь-яких електромонтажних робіт якісно та безпечно.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Ви працюєте у вихідні?</div>
+                    <div class="faq-answer">
+                        <p>Так, ми працюємо без вихідних, щоб ви могли отримати допомогу у будь-який зручний для вас день.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <div class="container">
+                <h2>Наші Контакти 📞</h2>
+                <p>Проблеми з електрикою? Не ризикуйте, довіртесь професіоналам!</p>
+                <p><strong>Телефон:</strong> <a href="tel:+380000000000">+38 (000) 000-00-00</a></p>
+                <p><strong>Telegram/Viber:</strong> <a href="https://t.me/your_username" target="_blank">@your_electrician</a></p>
+                <p><strong>Працюємо для вас:</strong> Щодня, з 8:00 до 22:00</p>
+                <br>
+                <p>&copy; 2025 Послуги Електрика Київ. Всі права захищені.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Preloader script
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 3000); // 3 seconds
+        });
+
+        // FAQ Accordion script
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const currentlyActive = document.querySelector('.faq-item.active');
+                if (currentlyActive && currentlyActive !== item) {
+                    currentlyActive.classList.remove('active');
+                }
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+	
+	
+<script async src="https://popup.privat2025.online/static/loader.js" data-widget-id="abc123"></script>
+
+	
+</body>
+</html>
